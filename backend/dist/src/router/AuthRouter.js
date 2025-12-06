@@ -89,7 +89,6 @@ router.get("/me", async (req, res) => {
             .json({ ok: false, error: "Invalid or expired token" });
     }
     try {
-        console.log(decoded);
         const user = await prisma.user.findUnique({
             where: { id: decoded.userId },
             select: { id: true, email: true, name: true },
