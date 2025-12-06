@@ -6,7 +6,12 @@
   "scripts": {
     "dev": "tsc -b && node ./dist/src/index.js",
     "build": "tsc -b",
-    "start": "node ./dist/src/index.js"
+    "start": "node ./dist/src/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+
+    "deploy": "npm run build && npm run prisma:generate && npm run prisma:migrate:deploy && npm run start"
   },
   "keywords": [],
   "author": "",
