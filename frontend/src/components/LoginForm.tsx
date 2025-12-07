@@ -30,7 +30,7 @@ export default function LoginForm(): React.ReactElement {
     setServerError("");
 
     try {
-        const res = await api.post("http://localhost:3000/api/v1/auth/login", data);
+        const res = await api.post("/api/v1/auth/login", data);
         const body = res.data;
 
         if (body.ok) {

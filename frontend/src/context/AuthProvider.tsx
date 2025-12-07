@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   async function fetchUser(jwt: string) {
     try {
-      const res = await api.get("http://localhost:3000/api/v1/auth/me", {
+      const res = await api.get("/api/v1/auth/me", {
         headers: { Authorization: `Bearer ${jwt}` },
       });
 
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setToken(saved);
 
         try {
-        const res = await api.get("http://localhost:3000/api/v1/auth/me", {
+        const res = await api.get("/api/v1/auth/me", {
             headers: { Authorization: `Bearer ${saved}` },
         });
 

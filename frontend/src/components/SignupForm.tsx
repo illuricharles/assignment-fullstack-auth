@@ -28,13 +28,11 @@ export default function SignupForm(): React.ReactElement {
 
     async function onSubmit(data: SignUpValues) {
     try {
-        const res = await api.post("http://localhost:3000/api/v1/auth/signup", data);
+        const res = await api.post("/api/v1/auth/signup", data);
 
         const body = res.data;
 
         if (body.ok) {
-
-            console.log("Signup success", body);
 
             navigate('/login')
             return;
