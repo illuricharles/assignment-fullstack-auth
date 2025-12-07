@@ -18,7 +18,7 @@ export default function SignupForm(): React.ReactElement {
         register,
         handleSubmit,
         setError,
-        formState: { errors ,isLoading},
+        formState: { errors , isSubmitting},
     } = useForm<SignUpValues>({
         resolver: zodResolver(signupSchema),
         mode: "onTouched",
@@ -160,10 +160,10 @@ export default function SignupForm(): React.ReactElement {
           {/* Submit Button */}
         <button
             type="submit"
-            disabled={isLoading}
+            disabled={isSubmitting}
             className={cn(buttonBase)}
             >
-            {isLoading? "Submitting": "Create Account"}
+            {isSubmitting? "Submitting": "Create Account"}
         </button>
 
         {serverError && <p className={cn(errorText, "text-center font-semibold")}>{serverError}</p>}

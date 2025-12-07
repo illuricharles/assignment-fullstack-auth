@@ -20,7 +20,7 @@ export default function LoginForm(): React.ReactElement {
         register,
         handleSubmit,
         setError,
-        formState: { errors },
+        formState: { errors, isSubmitting },
         } = useForm<SignInValues>({
         resolver: zodResolver(signinSchema),
         mode: "onTouched",
@@ -114,8 +114,9 @@ export default function LoginForm(): React.ReactElement {
             <button
                 type="submit"
                 className={cn(buttonBase)}
+                disabled={isSubmitting}
             >
-                Sign In
+                {isSubmitting? "Submitting" : "Sign In"}
             </button>
 
             {serverError && <p className={cn(errorText, "text-center font-semibold")}>{serverError}</p>}
